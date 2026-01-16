@@ -1,0 +1,171 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>User Information</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f8;
+    padding:20px;
+}
+
+.user-card{
+    background:#fff;
+    padding:15px;
+    margin-bottom:10px;
+    border-radius:6px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+button{
+    background:#1e90ff;
+    color:white;
+    border:none;
+    padding:8px 12px;
+    border-radius:4px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0b70d0;
+}
+
+.details{
+    margin-top:20px;
+    padding:20px;
+    background:#fff;
+    border-radius:6px;
+    display:none;
+}
+.details img{
+    width:120px;
+    border-radius:8px;
+    display:block;
+    margin-bottom:10px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>AL RAFAY ONLINE INSTITUTE</h1>
+<p>Institute ke students ki ID Card details check karein</p>
+
+<!-- USER LIST -->
+<div class="user-card">
+  <strong>Emily Johnson</strong>
+  <button onclick="viewDetails(1)">View Details</button>
+</div>
+
+<div class="user-card">
+  <strong>Muhammad Raza</strong>
+  <button onclick="viewDetails(2)">View Details</button>
+</div>
+
+<div class="user-card">
+  <strong>Salman Ahmed</strong>
+  <button onclick="viewDetails(3)">View Details</button>
+</div>
+
+<div class="user-card">
+  <strong>James Davis</strong>
+  <button onclick="viewDetails(4)">View Details</button>
+</div>
+
+<div class="user-card">
+  <strong>Emma Miller</strong>
+  <button onclick="viewDetails(5)">View Details</button>
+</div>
+
+<div class="user-card">
+  <strong>Olivia Wilson</strong>
+  <button onclick="viewDetails(6)">View Details</button>
+</div>
+
+<div class="user-card">
+  <strong>Alexander Jones</strong>
+  <button onclick="viewDetails(7)">View Details</button>
+</div>
+
+<div class="user-card">
+  <strong>Ava Taylor</strong>
+  <button onclick="viewDetails(8)">View Details</button>
+</div>
+
+<div class="user-card">
+  <strong>Ethan Martinez</strong>
+  <button onclick="viewDetails(9)">View Details</button>
+</div>
+
+<div class="user-card">
+  <strong>Isabella Anderson</strong>
+  <button onclick="viewDetails(10)">View Details</button>
+</div>
+
+<div class="user-card">
+  <strong>Liam Garcia</strong>
+  <button onclick="viewDetails(11)">View Details</button>
+</div>
+
+<div class="user-card">
+  <strong>Mia Rodriguez</strong>
+  <button onclick="viewDetails(12)">View Details</button>
+</div>
+
+<div class="user-card">
+  <strong>Noah Hernandez</strong>
+  <button onclick="viewDetails(13)">View Details</button>
+</div>
+
+<div class="user-card">
+  <strong>Charlotte Lopez</strong>
+  <button onclick="viewDetails(14)">View Details</button>
+</div>
+
+<div class="user-card">
+  <strong>William Gonzalez</strong>
+  <button onclick="viewDetails(15)">View Details</button>
+</div>
+
+<!-- DETAILS BOX -->
+<div class="details" id="detailsBox"></div>
+
+<script>
+const users = {
+  1:{name:"Emily Johnson",email:"emily.johnson@x.dummyjson.com",phone:"+81 965-431-3024",img:"https://i.pravatar.cc/150?img=1"},
+  2:{name:"Muhammad Raza",email:"raza@gmail.com",phone:"+92 300-1234567",img:"https://i.pravatar.cc/150?img=2"},
+  3:{name:"Salman Ahmed",email:"salman@gmail.com",phone:"+92 301-7654321",img:"https://i.pravatar.cc/150?img=3"},
+  4:{name:"James Davis",email:"james@dummy.com",phone:"+49 614-958-9364",img:"https://i.pravatar.cc/150?img=4"},
+  5:{name:"Emma Miller",email:"emma@dummy.com",phone:"+91 759-776-1614",img:"https://i.pravatar.cc/150?img=5"},
+  6:{name:"Olivia Wilson",email:"olivia@dummy.com",phone:"+91 607-295-6448",img:"https://i.pravatar.cc/150?img=6"},
+  7:{name:"Alexander Jones",email:"alex@dummy.com",phone:"+61 260-824-4986",img:"https://i.pravatar.cc/150?img=7"},
+  8:{name:"Ava Taylor",email:"ava@dummy.com",phone:"+1 458-853-7877",img:"https://i.pravatar.cc/150?img=8"},
+  9:{name:"Ethan Martinez",email:"ethan@dummy.com",phone:"+92 933-608-5081",img:"https://i.pravatar.cc/150?img=9"},
+  10:{name:"Isabella Anderson",email:"isa@dummy.com",phone:"+49 770-658-4885",img:"https://i.pravatar.cc/150?img=10"},
+  11:{name:"Liam Garcia",email:"liam@dummy.com",phone:"+92 870-217-6201",img:"https://i.pravatar.cc/150?img=11"},
+  12:{name:"Mia Rodriguez",email:"mia@dummy.com",phone:"+49 989-461-8403",img:"https://i.pravatar.cc/150?img=12"},
+  13:{name:"Noah Hernandez",email:"noah@dummy.com",phone:"+49 393-605-6968",img:"https://i.pravatar.cc/150?img=13"},
+  14:{name:"Charlotte Lopez",email:"charlotte@dummy.com",phone:"+44 373-953-5028",img:"https://i.pravatar.cc/150?img=14"},
+  15:{name:"William Gonzalez",email:"william@dummy.com",phone:"+81 905-252-7319",img:"https://i.pravatar.cc/150?img=15"}
+};
+
+function viewDetails(id){
+  const u = users[id];
+  const box = document.getElementById("detailsBox");
+  box.style.display="block";
+  box.innerHTML = `
+    <h3>User Details</h3>
+    <img src="${u.img}">
+    <p><b>Name:</b> ${u.name}</p>
+    <p><b>Email:</b> ${u.email}</p>
+    <p><b>Phone:</b> ${u.phone}</p>
+  `;
+}
+</script>
+
+</body>
+</html>
